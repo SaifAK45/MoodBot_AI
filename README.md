@@ -1,78 +1,102 @@
 # 🤖 MoodBot AI
 
-A personality-based AI chatbot built using **LangChain, Groq, and Streamlit**.
+A simple AI chatbot built with **LangChain, Groq, and Streamlit** that can change its personality based on the selected mood.
 
-MoodBot allows users to chat with an AI that changes its response style based on the selected personality: **Angry 😡, Funny 😂, or Sad 😢**.
+The user can choose between **Angry 😡, Funny 😂, and Sad 😢** modes and chat with the AI using a modern Streamlit interface.
 
 ---
 
-## ✨ Features
 
-- 🤖 AI-powered conversational chatbot
-- 🎭 Multiple AI personalities
+## 📌 Features
+
+- 🤖 AI-powered chatbot
+- 🎭 Three different AI personalities
   - 😡 Angry Mode
   - 😂 Funny Mode
   - 😢 Sad Mode
-- 💬 Maintains conversation history
-- 🧠 Uses LangChain message types
-- ⚡ Powered by Groq LLM API
+- 💬 Conversation history
+- 🧠 LangChain message handling
+- ⚡ Groq API for fast LLM responses
 - 🎨 Modern Streamlit chat interface
-- 🗑️ Clear conversation option
-- 🔐 Secure API key management using `.env`
-- 🔄 Personality switching
+- 🗑️ Clear chat functionality
+- ⚙️ Easy personality switching
+- 🔐 API key stored using `.env`
 
 ---
 
-## 🧠 Technologies Used
+## 🛠️ Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| Python | Core programming language |
-| LangChain | LLM application framework |
-| Groq | LLM API |
-| Streamlit | Web interface |
-| Python-dotenv | Environment variable management |
+### AI / LLM
+
+- Groq
+- OpenAI GPT-OSS 120B
+- LangChain
+
+### Backend
+
+- Python
+- LangChain
+- LangChain Groq
+
+### Frontend
+
+- Streamlit
+- Custom CSS
+
+### Environment
+
+- Python-dotenv
+- `.env`
 
 ---
 
 ## 🏗️ Project Architecture
 
 ```text
-                    👤 User
-                      │
-                      ▼
-              ┌───────────────┐
-              │  Streamlit UI │
-              └───────┬───────┘
-                      │
-                      ▼
-              🎭 Select Personality
-                      │
-          ┌───────────┼───────────┐
-          ▼           ▼           ▼
-       😡 Angry    😂 Funny     😢 Sad
-          │           │           │
-          └───────────┼───────────┘
-                      ▼
-              ┌───────────────┐
-              │ SystemMessage│
-              └───────┬───────┘
-                      │
-                      ▼
-              ┌───────────────┐
-              │ HumanMessage  │
-              └───────┬───────┘
-                      │
-                      ▼
-              ┌───────────────┐
-              │    ChatGroq   │
-              │      LLM      │
-              └───────┬───────┘
-                      │
-                      ▼
-              ┌───────────────┐
-              │   AIMessage   │
-              └───────┬───────┘
-                      │
-                      ▼
-              💬 AI Response
+              ┌──────────────────┐
+              │      User        │
+              └────────┬─────────┘
+                       │
+                       ▼
+              ┌──────────────────┐
+              │  Streamlit UI    │
+              └────────┬─────────┘
+                       │
+                       ▼
+              ┌──────────────────┐
+              │ Select Personality│
+              │                  │
+              │ 😡 Angry         │
+              │ 😂 Funny         │
+              │ 😢 Sad           │
+              └────────┬─────────┘
+                       │
+                       ▼
+              ┌──────────────────┐
+              │ SystemMessage    │
+              │ Personality      │
+              └────────┬─────────┘
+                       │
+                       ▼
+              ┌──────────────────┐
+              │ HumanMessage     │
+              │ User Input       │
+              └────────┬─────────┘
+                       │
+                       ▼
+              ┌──────────────────┐
+              │    ChatGroq      │
+              │   LLM Model      │
+              └────────┬─────────┘
+                       │
+                       ▼
+              ┌──────────────────┐
+              │   AIMessage      │
+              │   AI Response    │
+              └────────┬─────────┘
+                       │
+                       ▼
+              ┌──────────────────┐
+              │ Streamlit Chat   │
+              │      UI          │
+              └──────────────────┘
